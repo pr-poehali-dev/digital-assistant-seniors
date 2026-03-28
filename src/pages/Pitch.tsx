@@ -1,10 +1,10 @@
 import Icon from "@/components/ui/icon";
 
 const stats = [
-  { value: "1 200+", label: "семей под защитой" },
-  { value: "₽48 млн", label: "сэкономлено на ЖКХ" },
+  { value: "Старт", label: "только запустились" },
+  { value: "Живой", label: "специалист, не бот" },
   { value: "0", label: "случаев мошенничества" },
-  { value: "4.97", label: "рейтинг специалистов" },
+  { value: "24/7", label: "поддержка" },
 ];
 
 const partners = [
@@ -105,9 +105,7 @@ export default function Pitch() {
             <span className="font-semibold text-cyan-400"> пожилыми людьми и их взрослыми детьми.</span>
           </p>
           <p className="text-slate-300 text-lg leading-relaxed">
-            1 200 семей уже доверяют нам. Наш специалист находится внутри их жизни —
-            помогает с врачами, ЖКХ, защитой от мошенников. Каждая из этих семей —
-            ваш потенциальный клиент.
+            Мы только запустились, но уже видим: люди не хотят приложений и ботов. Они хотят живого человека, которому можно доверять. Наш специалист — внутри жизни семьи. Каждая такая семья — ваш потенциальный клиент.
           </p>
         </div>
 
@@ -142,19 +140,19 @@ export default function Pitch() {
           <h2 className="text-xl font-bold text-slate-900 mb-5">Наша аудитория</h2>
           <div className="grid grid-cols-3 gap-6">
             <div>
-              <div className="text-sm font-semibold text-slate-700 mb-2">Возраст подопечных</div>
-              <div className="text-3xl font-bold text-cyan-600">68 лет</div>
-              <div className="text-xs text-slate-500 mt-1">средний возраст</div>
+              <div className="text-sm font-semibold text-slate-700 mb-2">Целевая аудитория</div>
+              <div className="text-3xl font-bold text-cyan-600">60+</div>
+              <div className="text-xs text-slate-500 mt-1">возраст подопечных</div>
             </div>
             <div>
-              <div className="text-sm font-semibold text-slate-700 mb-2">Касаний с семьёй</div>
-              <div className="text-3xl font-bold text-cyan-600">8×</div>
-              <div className="text-xs text-slate-500 mt-1">в месяц</div>
+              <div className="text-sm font-semibold text-slate-700 mb-2">Формат работы</div>
+              <div className="text-3xl font-bold text-cyan-600">Живой</div>
+              <div className="text-xs text-slate-500 mt-1">специалист, не бот</div>
             </div>
             <div>
-              <div className="text-sm font-semibold text-slate-700 mb-2">Цель на год</div>
-              <div className="text-3xl font-bold text-cyan-600">10 000</div>
-              <div className="text-xs text-slate-500 mt-1">семей</div>
+              <div className="text-sm font-semibold text-slate-700 mb-2">Сейчас</div>
+              <div className="text-3xl font-bold text-cyan-600">Старт</div>
+              <div className="text-xs text-slate-500 mt-1">принимаем первых партнёров</div>
             </div>
           </div>
         </div>

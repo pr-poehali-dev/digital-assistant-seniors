@@ -2,10 +2,10 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const stats = [
-  { val: "1 200+", label: "Семей под защитой", icon: "Users" },
-  { val: "₽48 млн", label: "Сэкономлено на ЖКХ", icon: "TrendingDown" },
+  { val: "Старт", label: "Только запустились,\nпринимаем заявки", icon: "Rocket" },
+  { val: "Живой", label: "Специалист, не бот\nи не приложение", icon: "User" },
   { val: "0", label: "Случаев мошенничества\nпосле подключения", icon: "ShieldCheck" },
-  { val: "4.97", label: "Средний рейтинг\nспециалистов", icon: "Star" },
+  { val: "24/7", label: "Поддержка\nкаждый день", icon: "Clock" },
 ];
 
 const faqs = [
@@ -313,7 +313,7 @@ export default function Index() {
 
             <div className="flex items-center gap-8">
               {[
-                { val: "500+", label: "семей доверяют" },
+                { val: "Старт", label: "только запустились" },
                 { val: "24/7", label: "поддержка" },
                 { val: "0", label: "случаев мошенничества" },
               ].map((s) => (

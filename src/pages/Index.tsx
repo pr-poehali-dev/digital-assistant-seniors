@@ -1,6 +1,36 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const stats = [
+  { val: "1 200+", label: "Семей под защитой", icon: "Users" },
+  { val: "₽48 млн", label: "Сэкономлено на ЖКХ", icon: "TrendingDown" },
+  { val: "0", label: "Случаев мошенничества\nпосле подключения", icon: "ShieldCheck" },
+  { val: "4.97", label: "Средний рейтинг\nспециалистов", icon: "Star" },
+];
+
+const faqs = [
+  {
+    q: "Мой родитель не умеет пользоваться компьютером — это проблема?",
+    a: "Нет. Именно для таких случаев мы и работаем. Специалист приедет домой или подключится удалённо и всё настроит сам. Ваш родитель ничего не должен знать заранее.",
+  },
+  {
+    q: "Как вы защищаете от мошенников?",
+    a: "Устанавливаем фильтры нежелательных звонков, настраиваем список доверенных контактов, обучаем распознавать схемы обмана. Также внедряем систему «кодового слова» для проверки звонков от родственников.",
+  },
+  {
+    q: "Что такое защита от дипфейков?",
+    a: "Мошенники всё чаще используют ИИ-голоса, имитируя детей или внуков, чтобы вымогать деньги. Мы настраиваем семейное кодовое слово и объясняем как проверить любой подозрительный звонок.",
+  },
+  {
+    q: "Можно ли отменить подписку?",
+    a: "Да, в любой момент без штрафов. Достаточно написать нам в чат или на почту за 3 дня до следующего списания.",
+  },
+  {
+    q: "Специалист приедет в другой город?",
+    a: "Большинство задач решаем удалённо — это быстро и удобно. Выездные сессии доступны в Москве, Санкт-Петербурге и городах-миллионниках. Уточните при заявке.",
+  },
+];
+
 const HERO_IMG = "https://cdn.poehali.dev/projects/69f301b7-9c24-4422-87d0-b70d7ca3f972/files/f2bde625-ba50-4cbd-b84d-33ee9df5fa26.jpg";
 
 const services = [
@@ -141,6 +171,32 @@ const reviews = [
     stars: 5,
   },
 ];
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className={`card-glass rounded-2xl border transition-all duration-300 overflow-hidden ${open ? "border-cyan-500/30" : "border-white/5 hover:border-white/15"}`}
+    >
+      <button
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+        onClick={() => setOpen(!open)}
+      >
+        <span className="font-medium text-white text-sm leading-snug">{q}</span>
+        <Icon
+          name={open ? "ChevronUp" : "ChevronDown"}
+          size={18}
+          className={`flex-shrink-0 transition-colors ${open ? "text-cyan-400" : "text-slate-500"}`}
+        />
+      </button>
+      {open && (
+        <div className="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+          {a}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Index() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -292,6 +348,38 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* STATS */}
+      <section className="py-16 relative border-y border-white/5 bg-[#0d1220]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((s, i) => (
+              <div key={i} className="text-center group">
+                <div className="inline-flex w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 items-center justify-center mb-3 group-hover:bg-cyan-500/20 transition-all">
+                  <Icon name={s.icon} fallback="Circle" size={20} className="text-cyan-400" />
+                </div>
+                <div className="font-display text-3xl text-white mb-1">{s.val}</div>
+                <div className="text-xs text-slate-500 whitespace-pre-line leading-snug">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEAR BANNER */}
+      <div className="bg-gradient-to-r from-red-950/60 via-red-900/40 to-red-950/60 border-y border-red-500/20 py-4 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse flex-shrink-0" />
+            <p className="text-sm text-red-300">
+              <span className="font-bold text-red-200">По данным МВД:</span> каждые 3 минуты в России пожилой человек становится жертвой телефонных мошенников. Средний ущерб — <span className="font-bold text-white">87 000 ₽</span>.
+            </p>
+          </div>
+          <a href="#contacts" className="flex-shrink-0 bg-red-500 hover:bg-red-400 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">
+            Защитить сейчас
+          </a>
+        </div>
+      </div>
 
       {/* SERVICES */}
       <section id="services" className="py-24 relative">
@@ -502,6 +590,29 @@ export default function Index() {
                 </div>
                 <p className="text-slate-400 text-sm leading-relaxed">«{r.text}»</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full bg-cyan-500/6 blur-[120px]" />
+        </div>
+        <div className="max-w-3xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-2 mb-4">
+              <Icon name="HelpCircle" size={14} className="text-purple-400" />
+              <span className="text-purple-400 text-sm">Частые вопросы</span>
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl text-white">
+              Вы наверняка <span className="gradient-text-purple">спросите</span>
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <FaqItem key={i} q={faq.q} a={faq.a} />
             ))}
           </div>
         </div>

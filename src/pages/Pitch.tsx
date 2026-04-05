@@ -183,6 +183,98 @@ export default function Pitch() {
           </p>
         </div>
 
+        {/* SWOT */}
+        <h2 className="text-2xl font-bold text-slate-900 mb-6">Анализ позиции</h2>
+        <div className="grid grid-cols-2 gap-4 mb-12 print:mb-8">
+          <div className="p-6 print:p-5 rounded-xl border-2 border-green-200 bg-green-50">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center">
+                <Icon name="TrendingUp" size={14} className="text-white" />
+              </div>
+              <span className="font-bold text-green-800 text-sm uppercase tracking-wide">Сила</span>
+            </div>
+            <ul className="space-y-2">
+              {[
+                "Живой специалист — не бот и не приложение",
+                "Один специалист закрывает все задачи семьи",
+                "Высокое доверие: специалист воспринимается как родной",
+                "Платит взрослый ребёнок — лояльная, платёжеспособная аудитория",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2 text-sm text-green-900">
+                  <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-6 print:p-5 rounded-xl border-2 border-blue-200 bg-blue-50">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 bg-blue-500 rounded-lg flex items-center justify-center">
+                <Icon name="Compass" size={14} className="text-white" />
+              </div>
+              <span className="font-bold text-blue-800 text-sm uppercase tracking-wide">Возможности</span>
+            </div>
+            <ul className="space-y-2">
+              {[
+                "Огромный рынок — нормальных сервисов для пожилых нет",
+                "Партнёрства с клиниками, банками, аптеками",
+                "Выход на государственные и социальные программы",
+                "Тема дипфейков и мошенничества становится острее",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2 text-sm text-blue-900">
+                  <span className="text-blue-500 mt-0.5 flex-shrink-0">→</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-6 print:p-5 rounded-xl border-2 border-amber-200 bg-amber-50">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 bg-amber-500 rounded-lg flex items-center justify-center">
+                <Icon name="AlertTriangle" size={14} className="text-white" />
+              </div>
+              <span className="font-bold text-amber-800 text-sm uppercase tracking-wide">Слабости</span>
+            </div>
+            <ul className="space-y-2">
+              {[
+                "Только запустились — нет кейсов и репутации",
+                "Сложно масштабировать: каждый специалист — живой человек",
+                "Качество зависит от конкретного сотрудника",
+                "Сложно донести ценность: решение принимают дети, не родители",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2 text-sm text-amber-900">
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0">!</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-6 print:p-5 rounded-xl border-2 border-red-200 bg-red-50">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 bg-red-500 rounded-lg flex items-center justify-center">
+                <Icon name="ShieldAlert" size={14} className="text-white" />
+              </div>
+              <span className="font-bold text-red-800 text-sm uppercase tracking-wide">Угрозы</span>
+            </div>
+            <ul className="space-y-2">
+              {[
+                "Крупные игроки (Сбер, Яндекс) могут войти в нишу",
+                "Мошенники совершенствуются — сложно гарантировать защиту",
+                "Высокая стоимость привлечения при небольшом чеке",
+                "Зависимость от доверия: один скандал — удар по репутации",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2 text-sm text-red-900">
+                  <span className="text-red-500 mt-0.5 flex-shrink-0">✕</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         {/* Следующий шаг */}
         <div className="border-t border-slate-100 pt-10 print:pt-8 flex items-center justify-between">
           <div>
